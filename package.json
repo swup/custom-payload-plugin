@@ -1,7 +1,7 @@
 {
   "name": "@swup/custom-payload-plugin",
   "version": "0.1.0",
-  "description": "",
+  "description": "Receive custom payload formats from the server for optimizing speed.",
   "main": "lib/index.js",
   "scripts": {
     "compile": "babel --presets es2015,stage-0 -d lib/ src/",
