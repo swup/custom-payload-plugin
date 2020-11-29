@@ -1,6 +1,6 @@
 {
   "name": "@swup/custom-payload-plugin",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Receive custom payload formats from the server for optimizing speed.",
   "main": "lib/index.js",
   "scripts": {
