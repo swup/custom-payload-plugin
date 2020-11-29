@@ -6,7 +6,7 @@ This is a plugin for [swup](https://swup.js.org/) - complete, flexible, extensib
 
 The plugin adds support for sending a custom payload format from server, to reduce the size of payload data. 
 An example of such payload can be a JSON with page title and swup containers only. 
-This custom payload can be sent from server based on the `X-Requested-With` header which swup sets to values `swup`.
+This custom payload can be sent from server based on the `X-Requested-With` header which swup sets to value `swup`.
 
 ## Instalation
 
