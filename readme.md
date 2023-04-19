@@ -2,7 +2,9 @@
 
 # Swup Custom Payload Plugin
 
+<!-- swup-docs-ignore-start -->
 This is a plugin for [swup](https://swup.js.org/) - complete, flexible, extensible and easy to use page transition library for your web.
+<!-- swup-docs-ignore-end -->
 
 The plugin adds support for sending a custom payload format from server, to reduce the size of payload data. 
 An example of such payload can be a JSON with page title and swup containers only. 
