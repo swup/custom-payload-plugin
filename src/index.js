@@ -14,12 +14,12 @@ export default class CustomPayloadPlugin extends Plugin {
 	}
 
 	mount() {
-		this.swup._getPageData = this.swup.getPageData;
+		this.originalGetPageData = this.swup.getPageData;
 		this.swup.getPageData = this.options.generatePageObject;
 	}
 
 	unmount() {
-		this.swup.getPageData = this.swup._getPageData;
-		swup._getPageData = null;
+		this.swup.getPageData = this.originalGetPageData;
+		this.swup.originalGetPageData = null;
 	}
 }
