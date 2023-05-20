@@ -33,22 +33,17 @@ Or include the minified production file from a CDN:
 
 To run this plugin, include an instance in the swup options.
 
-Supply a `generatePageObject` function that receives a server response object,
-parses the response data and and returns a page object for swup to use.
-See below for the required structure of that page object.
+Pass in a `generatePageObject` function that receives a server request object,
+parses its response data and and returns an object with page data expected by
+swup. See below for the required structure and usage examples.
 
 ```javascript
 const swup = new Swup({
   plugins: [
     new SwupCustomPayloadPlugin({
         generatePageObject: (request) => {
-            const { title, blocks } = /* parse data from response */;
-            return {
-                title,  // required - title of page
-                blocks, // required - containers on page in correct order (as marked by [data-swup] attributes in DOM)
-                pageClass, // not requered - class of body element (but might be required by some plugin like Body Class plugin)
-                originalContent,    // not required - whole page html content (but might be required by some plugin)
-            };
+            /* [parse data from response here] */
+            return { title, blocks, pageClass, originalContent };
         }
     })
     ]
@@ -61,13 +56,40 @@ The returned page object must include the new page's title and all its content
 blocks. Other properties might be required to ensure proper functioning of
 additional plugins in use by the site.
 
-|    Property     | Required |                                                  Contents                                                   |             Notes             |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------- | ----------------------------- |
-| title           | Required | Title of the new page                                                                                       |                               |
-| blocks          | Required | Containers of the new page, HTML strings, in the correct order (as marked by [data-swup] attributes in DOM) |                               |
-| pageClass       | Optional | Class of the new page's body tag                                                                            | Required by Body Class Plugin |
-| originalContent | Optional | Full HTML string of the new page                                                                            | Required by Head Plugin       |
+|     Property      |  Required?   |         Type          |                                             Content                                             |             Notes             |
+| ----------------- | ------------ | --------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------- |
+| **`title`**       | **required** | string                | Title of the new page                                                                           |                               |
+| **`blocks`**      | **required** | array of HTML strings | Containers of the new page, in the correct order (as marked by `[data-swup]` attributes in DOM) |                               |
+| `pageClass`       |              | string                | Class name(s) of the new page's body tag                                                        | Required by Body Class Plugin |
+| `originalContent` |              | string                | Full HTML response of the new page                                                              | Required by Head Plugin       |
+
+## Example
+
+This example shows how to parse a JSON response from the server and return the
+correct data expected by swup.
+
+Given this custom JSON payload:
+
+```json
+{
+    "title": "About",
+    "template": "about",
+    "containers": [
+        "<main id=\"content\" class=\"transition-fade\"><h1>About</h1><p>Lorem ipsum dolor sit amet</p></main>",
+        "<nav id=\"menu\" class=\"transition-fade\"><a href=\"/\">Home</a><a href=\"/about/\">About</a></nav>"
+    ]
+}
+```
+
+This function will parse and prepare the page data for swup:
 
 ```js
-return { title, blocks, pageClass, originalContent }
+function generatePageObject({ response }) {
+    const { title, template, containers } = JSON.parse(response);
+    return {
+        title: title,
+        blocks: containers,
+        pageClass: template
+    };
+}
 ```
