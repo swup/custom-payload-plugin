@@ -20,6 +20,6 @@ export default class CustomPayloadPlugin extends Plugin {
 
 	unmount() {
 		this.swup.getPageData = this.originalGetPageData;
-		this.swup.originalGetPageData = null;
+		this.originalGetPageData = null;
 	}
 }
