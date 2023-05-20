@@ -3,11 +3,11 @@ import Plugin from '@swup/plugin';
 export default class CustomPayloadPlugin extends Plugin {
 	name = 'CustomPayloadPlugin';
 
-	constructor(options) {
+	constructor(options = {}) {
 		super();
 
-		if (!options || typeof options.generatePageObject !== 'function') {
-			throw Error("Option 'getPageData' must be defined and must be a function.");
+		if (typeof options.generatePageObject !== 'function') {
+			throw new Error("Option `generatePageObject` must be a function.");
 		}
 
 		this.options = options;
