@@ -3,6 +3,8 @@ import Plugin from '@swup/plugin';
 export default class CustomPayloadPlugin extends Plugin {
 	name = 'CustomPayloadPlugin';
 
+	requires = { swup: '3' };
+
 	constructor(options = {}) {
 		super();
 
