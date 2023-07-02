@@ -2,7 +2,7 @@
   "name": "@swup/custom-payload-plugin",
   "amdName": "CustomPayloadPlugin",
   "version": "1.0.0",
-  "description": "Receive custom payload formats from the server for optimizing speed.",
+  "description": "A swup plugin for sending custom payload formats",
   "type": "module",
   "source": "src/index.js",
   "main": "./dist/index.cjs",
