@@ -1,15 +1,13 @@
 # Swup Custom Payload Plugin
 
-<!-- swup-docs-ignore-start -->
-This is a plugin for [swup](https://swup.js.org/) - complete, flexible, extensible and easy to use page transition library for your web.
-<!-- swup-docs-ignore-end -->
+**⚠ Deprecated:** This plugin is no longer supported in swup 4. Keep using swup 3 if you
+require custom payloads.
 
-Add support for sending custom payloads to swup-powered sites. This allows
-sending only the actually updated content as JSON, reducing the payload size and
-speeding up page load.
+A [swup](https://swup.js.org/) plugin for sending custom payload formats.
 
-To identify a request requiring a custom payload, check if the
-`X-Requested-With` header is set to `swup`.
+Allow receiving custom data formats on swup requests. Great for sending only the actually updated
+content as JSON, reducing response size and speeding up page load. To identify requests requiring a
+custom payload, check if the `X-Requested-With` header is set to `swup`.
 
 ## Installation
 
@@ -26,7 +24,7 @@ import SwupCustomPayloadPlugin from '@swup/custom-payload-plugin';
 Or include the minified production file from a CDN:
 
 ```html
-<script src="https://unpkg.com/@swup/custom-payload-plugin@1"></script>
+<script src="https://unpkg.com/@swup/custom-payload-plugin@2"></script>
 ```
 
 ## Usage
