@@ -1,7 +1,7 @@
 import Plugin from '@swup/plugin';
 
-export default class CustomPayloadPlugin extends Plugin {
-	name = 'CustomPayloadPlugin';
+export default class SwupCustomPayloadPlugin extends Plugin {
+	name = 'SwupCustomPayloadPlugin';
 
 	requires = { swup: '3' };
 
