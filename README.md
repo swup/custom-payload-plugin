@@ -1,9 +1,9 @@
 # Swup Custom Payload Plugin
 
-**⚠ Deprecated:** This plugin is no longer supported in swup 4. Keep using swup 3 if you
-require custom payloads.
-
 A [swup](https://swup.js.org/) plugin for sending custom payload formats.
+
+**🪦 Retired: This plugin is no longer supported in swup 4. Keep using swup 3 if you
+require custom payloads.**
 
 Allow receiving custom data formats on swup requests. Great for sending only the actually updated
 content as JSON, reducing response size and speeding up page load. To identify requests requiring a
