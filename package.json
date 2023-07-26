@@ -1,8 +1,8 @@
 {
   "name": "@swup/custom-payload-plugin",
-  "amdName": "CustomPayloadPlugin",
-  "version": "1.0.0",
-  "description": "Receive custom payload formats from the server for optimizing speed.",
+  "amdName": "SwupCustomPayloadPlugin",
+  "version": "2.0.0",
+  "description": "A swup plugin for sending custom payload formats",
   "type": "module",
   "source": "src/index.js",
   "main": "./dist/index.cjs",
@@ -31,9 +31,6 @@
   "license": "MIT",
   "dependencies": {
     "@swup/plugin": "^2.0.0"
-  },
-  "devDependencies": {
-    "swup": "^3.0.0"
   },
   "peerDependencies": {
     "swup": "^3.0.0"
